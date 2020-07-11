@@ -38,7 +38,8 @@ func _physics_process(delta):
 			vel.x -= speed
 		if Input.is_action_pressed("ui_right"):
 			vel.x += speed
-		if Input.is_action_pressed("ui_accept"):  ### this is a mess
+		if Input.is_action_pressed("ui_accept"):  
+			### this is a mess
 			if possessed == 1:
 				possessed = 2  ### mess ends
 	elif possessed == 2: 
