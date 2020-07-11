@@ -1,12 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-var possessed = false
-
 onready var ghost = $Ghost
 onready var child = ghost
 
@@ -14,10 +7,11 @@ onready var radius = $Ghost/Radius
 
 onready var max_dist = $Ghost/Radius/CollisionShape2D.shape.radius
 
+var possessed = false
 var connected = []
+var currentPossession = ghost;
+var lastPossession;
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	child.possess()
 
@@ -26,16 +20,27 @@ func _process(delta):
 		var closest
 		var dist = max_dist
 		for body in connected:
-			if body.has_method("possess") and body != ghost:
+			if body.has_method("possess") and body != ghost and body != lastPossession:
 				var distance = body.global_position.distance_to(ghost.global_position)
 				if distance < dist: closest = body
 		if closest:
 			ghost.unpossess()
 			closest.possess()
+			currentPossession = closest;
 			possessed = true
-		
-	if Input.is_key_pressed(KEY_SPACE): child.unpossess()
 
+func _input(event):
+	var just_pressed = event.is_pressed() and not event.is_echo()
+	if Input.is_key_pressed(KEY_SPACE) and just_pressed:
+		if (possessed):
+			print("- unpossessing -");
+			currentPossession.unpossess();
+			child.possess();
+#			need work
+#			child.position = currentPossession.position;
+			possessed = false;
+			lastPossession = currentPossession;
+			currentPossession = ghost;
 
 func _on_Radius_body_entered(body):
 	if not body in connected: connected.append(body)
