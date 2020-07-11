@@ -9,20 +9,20 @@
 
 [node name="Level" type="Node2D"]
 
-[node name="Player" type="KinematicBody2D" parent="."]
+[node name="Ghost" type="KinematicBody2D" parent="."]
 script = ExtResource( 4 )
-possessed = true
 speed = 600
 JumpForce = 100
+gravity = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="Player"]
-modulate = Color( 1, 0, 0, 1 )
+[node name="Sprite" type="Sprite" parent="Ghost"]
 texture = ExtResource( 3 )
 
 [node name="Possession" parent="." instance=ExtResource( 1 )]
+position = Vector2( 10, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="Possession"]
 current = true
