@@ -38,9 +38,7 @@ drag_margin_bottom = 0.0
 position = Vector2( 475, -100 )
 collision_layer = 4
 script = ExtResource( 4 )
-speed = 5000
 gravity = 100
-tileNumber = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Red Target"]
 shape = SubResource( 1 )
@@ -53,10 +51,6 @@ texture = ExtResource( 3 )
 position = Vector2( 0, -175 )
 collision_layer = 4
 script = ExtResource( 4 )
-speed = 8000
-JumpForce = 400
-gravity = 250
-tileNumber = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Green Target"]
 shape = SubResource( 2 )
