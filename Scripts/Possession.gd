@@ -2,7 +2,7 @@ extends Node2D
 
 onready var ghost = $Ghost
 onready var child = ghost
-onready var camera = get_node("../MoverNode");
+onready var cameraNode = $CameraNode
 
 onready var radius = $Ghost/Radius
 
@@ -30,7 +30,7 @@ func _process(delta):
 			currentPossession = closest;
 			possessed = true
 			
-	camera.transform = currentPossession.transform;
+	cameraNode.transform = currentPossession.transform;
 
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
