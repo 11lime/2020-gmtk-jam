@@ -6,6 +6,12 @@ extends KinematicBody2D
 # var b = "text"
 
 export var possessed = false
+export var speed : int 
+export var JumpForce : int 
+export var gravity : int 
+
+var vel : Vector2 = Vector2()
+onready var sprite : Sprite = $Sprite
 
 func possess():
 	possessed = true
@@ -22,6 +28,14 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if possessed: 
-		pass
+		vel.x = 0
+		vel.y += gravity
+		if Input.is_action_pressed("ui_left"):
+			vel.x -= speed
+		if Input.is_action_pressed("ui_right"):
+			vel.x += speed
+		vel = move_and_slide(vel,Vector2.UP)
+	else:
+		print("Doing my thing")
