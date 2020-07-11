@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="GMTK"
 run/main_scene="res://Scenes/Level.tscn"
-config/icon="res://icon.png"
+config/icon="res://Sprites/icon.png"
 
 [display]
 
