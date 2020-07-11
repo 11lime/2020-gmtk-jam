@@ -35,9 +35,8 @@ func _input(event):
 		if (possessed):
 			print("- unpossessing -");
 			currentPossession.unpossess();
-			child.possess();
-#			need work
-#			child.position = currentPossession.position;
+			ghost.global_position = currentPossession.global_position;
+			ghost.possess();
 			possessed = false;
 			lastPossession = currentPossession;
 			currentPossession = ghost;
