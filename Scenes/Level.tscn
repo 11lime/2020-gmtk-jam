@@ -4,10 +4,9 @@
 [ext_resource path="res://Sprites/background.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Possession.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Test.gd" type="Script" id=4]
+[ext_resource path="res://TileSets/temporarytileset.tres" type="TileSet" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-
-[sub_resource type="TileSet" id=2]
 
 [node name="Level" type="Node2D"]
 
@@ -37,5 +36,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 7000, 2300 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+tile_set = ExtResource( 5 )
 format = 1
+tile_data = PoolIntArray( -327675, 0, 65536, -262139, 0, 65536, -196603, 0, 65536, -131067, 0, 65536, -65531, 0, 65536, 5, 0, 65536, 131067, 0, 1, 131068, 0, 1, 131069, 0, 1, 131070, 0, 1, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65536, 196603, 0, 1, 196604, 0, 1, 196605, 0, 1, 196606, 0, 1, 196607, 0, 1, 131072, 0, 1, 131073, 0, 1, 131074, 0, 1, 131075, 0, 1, 131076, 0, 1, 131077, 0, 65536, 196613, 0, 65536 )
