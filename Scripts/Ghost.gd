@@ -6,10 +6,13 @@ export var JumpForce : int
 export var gravity : int 
 
 var vel : Vector2 = Vector2()
+var timeInGhost : float
 
 func possess():
 	print("ghost possess");
 	possessed = true
+	vel.y = 0;
+	timeInGhost = 0;
 	show()
 
 func unpossess():
@@ -18,15 +21,26 @@ func unpossess():
 	hide()
 
 func _ready():
-	hide()
-
-func _physics_process(delta):
-	vel.x = 0
-	vel.y = gravity
-	if possessed: 
+	hide();
+	
+func handleInput():
 		if Input.is_action_pressed("ui_left"):
 			vel.x -= speed
 		if Input.is_action_pressed("ui_right"):
 			vel.x += speed
-			
-	vel = move_and_slide(vel * delta,Vector2.UP)
+
+func _physics_process(delta):
+	if possessed: 
+		vel.x = 0
+		vel.y += delta * gravity
+	
+		handleInput();
+	
+		vel.x *= delta;
+		
+		vel = move_and_slide(vel,Vector2.UP)
+		
+		timeInGhost += delta;
+		if (timeInGhost > 3):
+			print("you lose");
+		
