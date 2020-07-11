@@ -14,6 +14,7 @@ export var jump_power = -225
 
 var velocity : Vector2 = Vector2()
 var possessed : bool
+var moved : bool
 
 func possess():
 	print(get_name() + " - target possess");
@@ -30,23 +31,30 @@ func _ready():
 	print("target is ready");
 	
 func handle_input(delta):
+	moved = false
 	var input = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	if input != 0:
 		velocity.x += clamp(input * acceleration * delta, -max_speed, max_speed)
-	elif is_on_floor():
-		velocity.x = lerp(velocity.x, 0, ground_friction)
-	else:
-		velocity.x = lerp(velocity.x, 0, friction)
+		moved = true
 	if Input.is_action_just_pressed("ui_up") and (is_on_floor() or is_on_wall()):
 		velocity.y = jump_power
-	elif velocity.y > 0:
-		velocity.y += (gravity + extraGravity) * delta
-	else:
-		velocity.y += gravity * delta
-	velocity = move_and_slide(velocity, Vector2.UP)
+		return true
+	return false
 
-func _physics_process(delta):	
-	if possessed: handle_input(delta);
+func _physics_process(delta):
+	var jumped = false
+	if possessed: jumped = handle_input(delta);
+	if not jumped:
+		if velocity.y > 0:
+			velocity.y += (gravity + extraGravity) * delta
+		else:
+			velocity.y += gravity * delta
+	if not moved:
+		if is_on_floor():
+			velocity.x = lerp(velocity.x, 0, ground_friction)
+		else:
+			velocity.x = lerp(velocity.x, 0, friction)
+	velocity = move_and_slide(velocity, Vector2.UP)
 	
 #	for i in get_slide_count():
 #		var collision = get_slide_collision(i);
