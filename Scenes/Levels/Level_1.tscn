@@ -920,7 +920,7 @@ region_rect = Rect2( 0, 0, 7000, 2300 )
 
 [node name="Goal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 605.007, 292.963 )
-nextLevel = "Level_1"
+nextLevel = "Level_2"
 
 [node name="FirePerson" parent="." instance=ExtResource( 4 )]
 position = Vector2( 189.696, 303.065 )
