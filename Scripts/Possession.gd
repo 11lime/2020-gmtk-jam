@@ -2,9 +2,9 @@ extends Node2D
 
 onready var ghost = $Ghost
 onready var child = ghost
-#onready var cameraNode = $CameraNode
 
 onready var radius = $Ghost/Radius
+onready var radiusCollision = $Ghost/Radius/CollisionShape2D
 
 onready var max_dist = $Ghost/Radius/CollisionShape2D.shape.radius
 
@@ -17,7 +17,19 @@ func _ready():
 	child.possess()
 	currentPossession = ghost;
 
+func _draw():
+	var drawPosition;
+	
+	if possessed:
+		drawPosition = Vector2.ZERO;
+	else:
+		drawPosition = ghost.position;
+
+	draw_circle(drawPosition, radiusCollision.shape.radius, Color(0.9, 0.9, 0.9, 0.2));
+
 func _process(delta):
+	update();
+	
 	if not connected.empty() and not possessed:
 		var closest
 		var dist = max_dist
@@ -32,7 +44,7 @@ func _process(delta):
 			possessed = true
 			
 	if possessed:
-		transform = currentPossession.transform;
+		position = currentPossession.position;
 
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
