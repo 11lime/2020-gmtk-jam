@@ -7,6 +7,7 @@ onready var LevelNode = $LevelNode
 var currentLevel;
 
 func _ready():
+	MusicController.startPlaying("res://Music/Ghostie_ingame_OGG.ogg");
 	LevelState.setCurrentLevel("Level");
 	setLevel();
 	LevelState.connect("stateChanged", self, "onStateChange");

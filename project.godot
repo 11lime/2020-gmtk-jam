@@ -23,6 +23,7 @@ config/icon="res://Sprites/icon.png"
 
 SceneChanger="*res://Scripts/SceneChanger.gd"
 LevelState="*res://Scripts/LevelState.gd"
+MusicController="*res://Scenes/MusicController.tscn"
 
 [display]
 

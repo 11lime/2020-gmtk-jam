@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ghostie_ingame_OGG.ogg-f504fd94b77f7a3e2e57c69b22d8a95c.oggstr"
+
+[deps]
+
+source_file="res://Music/Ghostie_ingame_OGG.ogg"
+dest_files=[ "res://.import/Ghostie_ingame_OGG.ogg-f504fd94b77f7a3e2e57c69b22d8a95c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
