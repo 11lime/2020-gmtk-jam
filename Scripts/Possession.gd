@@ -42,6 +42,7 @@ func handleProcess(delta):
 		if closest:
 			ghost.unpossess()
 			closest.possess()
+			MusicController.playSoundeffect("enter");
 			currentPossession = closest;
 			possessed = true
 		

@@ -17,6 +17,7 @@ func possess():
 	possessed = true
 	vel.y = 0;
 	timeInGhost = 0;
+	MusicController.playSoundeffect("eject");
 	show()
 
 func unpossess():

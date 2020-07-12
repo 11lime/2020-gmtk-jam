@@ -1,6 +1,7 @@
 extends Control
 
 onready var player = $MusicPlayer;
+onready var effects = $EffectPlayer;
 
 var playing : bool = false;
 var currentTrack : String;
@@ -27,3 +28,18 @@ func playCurrentTrack():
 
 func setAudioLevel(db : float):
 	player.volume_db = db;
+
+func playSoundeffect(effectName : String):
+	var path = "res://Music/" + effectName + ".wav"
+	var track = load(path);
+	
+	if !effects.playing:
+		effects.stream = track;
+		effects.play();
+	else:
+		var asp = effects.duplicate(DUPLICATE_USE_INSTANCING)
+		get_parent().add_child(asp)
+		asp.stream = track
+		asp.play()
+		yield(asp, "finished")
+		asp.queue_free()
