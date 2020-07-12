@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=106 format=2]
 
 [ext_resource path="res://Scenes/Characters/Possession.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/background.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/Tiles/ground_tileset.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/LevelLogic.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Objects/Goal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Objects/FireBlock.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -902,7 +903,7 @@ points = PoolVector2Array( 32, 48, 0, 48, 0, 32, 32, 32 )
 script = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -300 )
+position = Vector2( 233.348, -158.721 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 97 )
@@ -920,10 +921,10 @@ texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 7000, 2300 )
 
 [node name="FirePerson" parent="." instance=ExtResource( 3 )]
-position = Vector2( 261.127, -354.784 )
+position = Vector2( -235.729, -350.022 )
 
 [node name="JumpPerson" parent="." instance=ExtResource( 4 )]
-position = Vector2( -215.887, -338.116 )
+position = Vector2( 71.4325, -150.803 )
 
 [node name="JumpPerson2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -989.845, -157.345 )
@@ -943,3 +944,15 @@ position = Vector2( -506.833, -791.627 )
 [node name="Goal" parent="." instance=ExtResource( 7 )]
 position = Vector2( -41.6223, -726.605 )
 nextLevel = "Level2"
+
+[node name="FireBlock" parent="." instance=ExtResource( 8 )]
+position = Vector2( -300.339, -726.153 )
+
+[node name="FireBlock2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -356.907, -334.416 )
+
+[node name="FireBlock3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -356.907, -394.737 )
+
+[node name="FireBlock4" parent="." instance=ExtResource( 8 )]
+position = Vector2( -356.907, -461.408 )
