@@ -2,10 +2,26 @@ extends Node2D
 
 onready var PauseMenu = $CanvasLayer/PauseMenu;
 onready var GameOverMenu = $CanvasLayer/GameOverMenu;
+onready var LevelNode = $LevelNode
+
+var currentLevel;
 
 func _ready():
+	setLevel();
 	LevelState.connect("stateChanged", self, "onStateChange");
-	resetLevel();
+	
+func setLevel():
+	var levelPath = LevelState.currentLevel;
+	
+	print("setting level to: " + levelPath);
+	var newLevelScene = load(levelPath);
+	if (currentLevel != null):
+		LevelNode.remove_child(currentLevel)
+	
+	currentLevel = newLevelScene.instance();
+	LevelNode.add_child(currentLevel);
+	
+	LevelState.setPlayState(LevelState.playstate.playing);	
 
 func onStateChange(newState):
 	print("we got it: " + str(newState));
@@ -17,6 +33,8 @@ func onStateChange(newState):
 		hideMenus();
 	if (newState == LevelState.playstate.paused):
 		pauseGame();
+	if (newState == LevelState.playstate.nextlevel):
+		setLevel();
 
 func hideMenus():
 	GameOverMenu.visible = false;
@@ -33,7 +51,7 @@ func switchGameState():
 	elif (LevelState.currentState == LevelState.playstate.playing):
 		LevelState.setPlayState(LevelState.playstate.paused);
 	else:
-		resetLevel();
+		setLevel();
 		
 func gameOver():
 	print("gameover menu ");
@@ -41,11 +59,7 @@ func gameOver():
 	
 func retry():
 	print("retry ");
-	resetLevel();
+	setLevel();
 		
 func pauseGame():
 	PauseMenu.visible = true;
-			
-func resetLevel():
-	LevelState.setPlayState(LevelState.playstate.playing);
-	print("Tried to reset level but not implemented yet");

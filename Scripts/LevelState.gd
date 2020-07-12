@@ -6,15 +6,18 @@ enum playstate {
 	playing,
 	paused,
 	gameover,
-	retry
+	retry,
+	nextlevel
 } 
 
+var currentLevel : String = "res://Scenes/Levels/Level.tscn";
 var currentState = playstate.playing;
 
 func isPlaying() -> bool:
 	return currentState == playstate.playing;
 
 func setPlayState(newState):
-	print("new State is " + str(newState));
-	currentState = newState;
-	emit_signal("stateChanged", newState);
+	if (newState != currentState):
+		print("new State is " + str(newState));
+		currentState = newState;
+		emit_signal("stateChanged", newState);
