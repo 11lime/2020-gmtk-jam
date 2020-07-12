@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var sprite : Sprite = $AnimatedSprite
+onready var sprite : AnimatedSprite = $Sprite
 
 export var acceleration = 512
 export var max_speed = 64
@@ -17,13 +17,11 @@ var possessed : bool
 var moved : bool
 
 func possess():
-	print(get_name() + " - target possess");
-	rotation += PI;
+	print(get_name() + " - target possess")
 	possessed = true
 
 func unpossess():
-	print(get_name() + " - target unpossess");
-	rotation -= PI;
+	print(get_name() + " - target unpossess")
 	possessed = false
 
 
@@ -58,5 +56,9 @@ func handlePhysics(delta):
 			velocity.x = lerp(velocity.x, 0, ground_friction)
 		else:
 			velocity.x = lerp(velocity.x, 0, friction)
+	if velocity.x > 0:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 	velocity = move_and_slide(velocity, Vector2.UP)
 	

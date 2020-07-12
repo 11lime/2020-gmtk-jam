@@ -1,16 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://Sprites/Jumpy.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Target.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 24, 40 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 2000, 2000 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 2000, 0, 2000, 2000 )
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [  ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 2.0
 } ]
 
 [node name="JumpPerson" type="KinematicBody2D"]
@@ -23,5 +34,7 @@ jump_power = -300
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-modulate = Color( 0.113725, 0.831373, 0.105882, 1 )
-frames = SubResource( 2 )
+scale = Vector2( 0.05, 0.05 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
