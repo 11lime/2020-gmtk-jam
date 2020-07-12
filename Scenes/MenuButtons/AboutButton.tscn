@@ -1,20 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Sprites/Menu/tempstartbuttonselect.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Menu/tempstartbuttonhover.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Menu/tempstartbutton.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Menu/buttonhover.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Menu/buttonpressed.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Menu/button.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Menu/AboutButton.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/MenuButtons/AboutTemplate.tscn" type="PackedScene" id=5]
 
 [node name="AboutButton" type="TextureButton"]
-modulate = Color( 0.854902, 0.215686, 0.988235, 1 )
-margin_top = 44.0
-margin_right = 120.0
-margin_bottom = 84.0
+margin_right = 128.0
+margin_bottom = 62.0
 texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 1 )
-texture_hover = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 1 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MarginContainer" parent="." instance=ExtResource( 5 )]
 [connection signal="pressed" from="." to="." method="_on_AboutButton_pressed"]

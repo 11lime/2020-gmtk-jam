@@ -5,7 +5,8 @@ onready var parallaxBackground : ParallaxBackground = $ParallaxBackground
 onready var camera : Camera2D = $Player/Ghost/Camera2D
 
 func _ready():
-	restrictCamera();
+	pass;
+#	restrictCamera();
 
 # restricts the camera to the TileMap dimensions
 func restrictCamera():
@@ -17,6 +18,8 @@ func restrictCamera():
 	
 	var topLeftWithOffset = Vector2(tileSize * offsetPosition);
 	var mapDimension = Rect2(topLeftWithOffset, tileSize * tileMapDimension.size);
+	
+	print(mapDimension);
 	
 	camera.limit_left = mapDimension.position.x;
 	camera.limit_top = mapDimension.position.y;

@@ -8,7 +8,7 @@ var currentLevel;
 
 func _ready():
 	MusicController.startPlaying("res://Music/Ghostie_ingame_OGG.ogg");
-	LevelState.setCurrentLevel("Level");
+	LevelState.setCurrentLevel("Level_1");
 	setLevel();
 	LevelState.connect("stateChanged", self, "onStateChange");
 	

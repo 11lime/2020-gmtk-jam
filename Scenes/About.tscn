@@ -53,19 +53,18 @@ margin_right = 766.0
 margin_bottom = 475.0
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 2 )
-text = "This game was made for the GMTK Game Jam 2020
-The theme was 'Out of Control' 
+text = "This game was made for the GMTK Game Jam 2020 with the Theme  'Out of Control' 
 
 We have implemented this as taking over the control of NPCs which have special abilities to reach the end of the level
 
-
-
-Labels use the font AlegreyaSans-Bold
-
-
+Labels use the font AlegreyaSans-Bold, engine used is Godot
 
 The team:
-.."
+Çağlar Şahin (Composer), Zuza - z.#3629 (SFX), Queque#5570 (Artist), JackFly26#0643 (Developer), 11#9811 (Developer)
+
+Special thanks to: 
+Ariadna Laddy (Singer), Wiktor and joj (former Teammates)
+"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,6 +73,9 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 479.0
 margin_right = 766.0
-margin_bottom = 519.0
+margin_bottom = 541.0
 
 [node name="MenuButton" parent="MarginContainer/VBoxContainer/CenterContainer" instance=ExtResource( 2 )]
+margin_left = 319.0
+margin_right = 447.0
+margin_bottom = 62.0
