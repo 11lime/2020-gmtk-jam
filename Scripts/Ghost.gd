@@ -10,6 +10,8 @@ export var gravity : int
 var vel : Vector2 = Vector2()
 var timeInGhost : float
 
+onready var sprite = $Sprite
+
 func possess():
 	print("ghost possess");
 	possessed = true
@@ -40,6 +42,15 @@ func _physics_process(delta):
 			handleInput();
 		
 			vel.x *= delta;
+			
+			if vel.x > 0:
+				sprite.frame = 1
+				sprite.flip_h = false
+			elif vel.x < 0:
+				sprite.frame = 1
+				sprite.flip_h = true
+			else:
+				sprite.frame = 0
 			
 			vel = move_and_slide(vel,Vector2.UP)
 			
