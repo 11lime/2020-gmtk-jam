@@ -32,7 +32,7 @@ func _process(delta):
 			possessed = true
 			
 	if possessed:
-		ghost.transform = currentPossession.transform;
+		transform = currentPossession.transform;
 
 func _input(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
