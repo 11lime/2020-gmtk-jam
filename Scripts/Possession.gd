@@ -28,8 +28,10 @@ func _draw():
 	draw_circle(drawPosition, radiusCollision.shape.radius, Color(0.9, 0.9, 0.9, 0.2));
 
 func _process(delta):
-	update();
+	if LevelState.isPlaying():
+		handleProcess(delta);
 	
+func handleProcess(delta):
 	if not connected.empty() and not possessed:
 		var closest
 		var dist = max_dist
@@ -42,11 +44,17 @@ func _process(delta):
 			closest.possess()
 			currentPossession = closest;
 			possessed = true
-			
+		
 	if possessed:
 		position = currentPossession.position;
+	
+	update();
 
 func _input(event):
+	if LevelState.isPlaying():
+		handleInput(event);
+
+func handleInput(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	if Input.is_key_pressed(KEY_SPACE) and just_pressed:
 		if (possessed):

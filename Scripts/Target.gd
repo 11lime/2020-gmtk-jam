@@ -29,7 +29,6 @@ func _ready():
 	print("target is ready");
 	
 func handle_input(delta):
-	moved = false
 	var input = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	if input != 0:
 		velocity.x += clamp(input * acceleration * delta, -max_speed, max_speed)
@@ -40,7 +39,12 @@ func handle_input(delta):
 	return false
 
 func _physics_process(delta):
+	if LevelState.isPlaying():
+		handlePhysics(delta);
+	
+func handlePhysics(delta):
 	var jumped = false
+	moved = false;
 	if possessed: jumped = handle_input(delta);
 	if not jumped:
 		if velocity.y > 0:

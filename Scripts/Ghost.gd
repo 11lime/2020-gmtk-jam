@@ -30,17 +30,19 @@ func handleInput():
 			vel.x += speed
 
 func _physics_process(delta):
-	if possessed: 
-		vel.x = 0
-		vel.y += delta * gravity
-	
-		handleInput();
-	
-		vel.x *= delta;
+	if LevelState.isPlaying():
+		if possessed: 
+			vel.x = 0
+			vel.y += delta * gravity
 		
-		vel = move_and_slide(vel,Vector2.UP)
+			handleInput();
 		
-		timeInGhost += delta;
-		if (timeInGhost > 3):
-			print("you lose");
+			vel.x *= delta;
+			
+			vel = move_and_slide(vel,Vector2.UP)
+			
+			timeInGhost += delta;
+			if (timeInGhost > 3):
+				LevelState.setPlayState(LevelState.playstate.gameover);
+				print("you lose");
 		
