@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-signal my_signal(target, collision, tileNumber);
-
 onready var sprite : Sprite = $Sprite
 
 export var acceleration = 512
@@ -56,7 +54,3 @@ func _physics_process(delta):
 			velocity.x = lerp(velocity.x, 0, friction)
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-#	for i in get_slide_count():
-#		var collision = get_slide_collision(i);
-#		if collision && collision.collider is TileMap && possessed:
-#			emit_signal("my_signal", self, collision, tileNumber);
