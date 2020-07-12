@@ -1,9 +1,12 @@
 extends Node
 
+signal stateChanged(newState);
+
 enum playstate {
 	playing,
 	paused,
-	gameover
+	gameover,
+	retry
 } 
 
 var currentState = playstate.playing;
@@ -14,3 +17,4 @@ func isPlaying() -> bool:
 func setPlayState(newState):
 	print("new State is " + str(newState));
 	currentState = newState;
+	emit_signal("stateChanged", newState);
