@@ -10,8 +10,14 @@ enum playstate {
 	nextlevel
 } 
 
-var currentLevel : String = "res://Scenes/Levels/Level.tscn";
+var currentLevel : String;
 var currentState = playstate.playing;
+
+func setCurrentLevel(levelName : String):
+	currentLevel = levelName;
+
+func getCurrentLevel() -> String:
+	return "res://Scenes/Levels/" + currentLevel + ".tscn"
 
 func isPlaying() -> bool:
 	return currentState == playstate.playing;

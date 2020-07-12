@@ -5,6 +5,8 @@ export var speed : int
 export var JumpForce : int 
 export var gravity : int 
 
+#const isTarget : bool = false;
+
 var vel : Vector2 = Vector2()
 var timeInGhost : float
 

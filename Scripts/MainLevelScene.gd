@@ -7,11 +7,15 @@ onready var LevelNode = $LevelNode
 var currentLevel;
 
 func _ready():
+	LevelState.setCurrentLevel("Level");
 	setLevel();
 	LevelState.connect("stateChanged", self, "onStateChange");
 	
 func setLevel():
-	var levelPath = LevelState.currentLevel;
+	call_deferred("_deferredSetLevel");
+
+func _deferredSetLevel():
+	var levelPath = LevelState.getCurrentLevel();
 	
 	print("setting level to: " + levelPath);
 	var newLevelScene = load(levelPath);

@@ -10,6 +10,8 @@ export var gravity = 400
 export var extraGravity = 200
 export var jump_power = -225
 
+const isTarget : bool = true;
+
 var velocity : Vector2 = Vector2()
 var possessed : bool
 var moved : bool
