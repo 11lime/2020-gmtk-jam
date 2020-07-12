@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var sprite : Sprite = $Sprite
+onready var sprite : Sprite = $AnimatedSprite
 
 export var acceleration = 512
 export var max_speed = 64
