@@ -2,7 +2,7 @@ extends Node2D
 
 onready var tileMap : TileMap = $TileMap
 onready var parallaxBackground : ParallaxBackground = $ParallaxBackground
-onready var camera : Camera2D = $Player/CameraNode/Camera2D
+onready var camera : Camera2D = $Player/Ghost/Camera2D
 
 func _ready():
 	restrictCamera();
