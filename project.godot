@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="GMTK"
-run/main_scene="res://Scenes/Level.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://Sprites/icon.png"
+
+[autoload]
+
+SceneChanger="*res://Scripts/SceneChanger.gd"
 
 [display]
 
@@ -30,4 +34,5 @@ window/stretch/aspect="keep"
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
