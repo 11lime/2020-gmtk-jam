@@ -6,7 +6,8 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
-outline_color = Color( 0.717647, 0.0352941, 0.0352941, 1 )
+outline_size = 5
+outline_color = Color( 0.372549, 0.360784, 0.478431, 1 )
 font_data = ExtResource( 6 )
 
 [node name="GameOverMenu" type="Control"]
@@ -33,18 +34,21 @@ margin_bottom = 468.0
 
 [node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 766.0
-margin_bottom = 424.0
+margin_bottom = 402.0
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 1 )
 text = "Game Over"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 428.0
+margin_top = 406.0
 margin_right = 766.0
 margin_bottom = 468.0
 
 [node name="MenuButton2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
-margin_left = 0.0
-margin_right = 120.0
+margin_right = 128.0
+margin_bottom = 62.0
 
 [node name="RetryButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 62.0
