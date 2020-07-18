@@ -3,7 +3,6 @@ extends Node2D
 export var nextLevel : String
 
 func _on_Area2D_body_entered(body):
-	print("goal entered")
 	if (body.get("isTarget") != null):
 		gotoNextLevel();
 

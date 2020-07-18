@@ -6,19 +6,19 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 28, 40 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 2000, 3000 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 2000, 0, 2000, 3000 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0
@@ -34,6 +34,6 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.05, 0.05 )
-frames = SubResource( 2 )
+frames = SubResource( 4 )
 frame = 1
 playing = true

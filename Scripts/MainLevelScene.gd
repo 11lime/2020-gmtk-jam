@@ -18,7 +18,6 @@ func setLevel():
 func _deferredSetLevel():
 	var levelPath = LevelState.getCurrentLevel();
 	
-	print("setting level to: " + levelPath);
 	var newLevelScene = load(levelPath);
 	if (currentLevel != null):
 		LevelNode.remove_child(currentLevel)
@@ -29,7 +28,6 @@ func _deferredSetLevel():
 	LevelState.setPlayState(LevelState.playstate.playing);	
 
 func onStateChange(newState):
-	print("we got it: " + str(newState));
 	if (newState == LevelState.playstate.gameover):
 		gameOver();
 	if (newState == LevelState.playstate.retry):
@@ -59,11 +57,9 @@ func switchGameState():
 		setLevel();
 		
 func gameOver():
-	print("gameover menu ");
 	GameOverMenu.visible = true;
 	
 func retry():
-	print("retry ");
 	setLevel();
 		
 func pauseGame():

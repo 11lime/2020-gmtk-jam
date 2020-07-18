@@ -59,7 +59,6 @@ func handleInput(event):
 	var just_pressed = event.is_pressed() and not event.is_echo()
 	if Input.is_key_pressed(KEY_SPACE) and just_pressed:
 		if (possessed):
-			print("- unpossessing -");
 			currentPossession.unpossess();
 			ghost.global_position = currentPossession.global_position;
 			ghost.possess();

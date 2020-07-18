@@ -24,6 +24,5 @@ func isPlaying() -> bool:
 
 func setPlayState(newState):
 	if (newState != currentState):
-		print("new State is " + str(newState));
 		currentState = newState;
 		emit_signal("stateChanged", newState);

@@ -17,16 +17,10 @@ var possessed : bool
 var moved : bool
 
 func possess():
-	print(get_name() + " - target possess")
 	possessed = true
 
 func unpossess():
-	print(get_name() + " - target unpossess")
 	possessed = false
-
-
-func _ready():
-	print("target is ready");
 	
 func handle_input(delta):
 	var input = (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))

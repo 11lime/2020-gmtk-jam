@@ -13,7 +13,6 @@ var timeInGhost : float
 onready var sprite = $Sprite
 
 func possess():
-	print("ghost possess");
 	possessed = true
 	vel.y = 0;
 	timeInGhost = 0;
@@ -21,7 +20,6 @@ func possess():
 	show()
 
 func unpossess():
-	print("ghost unpossess");
 	possessed = false
 	hide()
 
@@ -58,5 +56,3 @@ func _physics_process(delta):
 			timeInGhost += delta;
 			if (timeInGhost > 3):
 				LevelState.setPlayState(LevelState.playstate.gameover);
-				print("you lose");
-		

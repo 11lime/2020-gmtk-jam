@@ -16,10 +16,10 @@ func restrictCamera():
 	# give some space to the top to prevent claustrophic feeling	
 	var offsetPosition = tileMapDimension.position - Vector2(0, 3);
 	
+	
 	var topLeftWithOffset = Vector2(tileSize * offsetPosition);
 	var mapDimension = Rect2(topLeftWithOffset, tileSize * tileMapDimension.size);
-	
-	print(mapDimension);
+
 	
 	camera.limit_left = mapDimension.position.x;
 	camera.limit_top = mapDimension.position.y;
